@@ -37,14 +37,14 @@ def cloud_handler(event, context):
     payload = {}
     headers = {}
 
-    url = CORRECT_URL + ":" + WRONG_PORT + API
+    url = f"{CORRECT_URL}:{WRONG_PORT}{API}"
 
     response = get_call_api(url, payload, headers)
     response_code = response.status_code
     try:
         response_data = response.json()
     except Exception as e:
-        response_data = json.dumps("Error : {}".format(e))
+        response_data = json.dumps(f"Error : {e}")
 
     return {
         "url": url,

@@ -22,7 +22,7 @@ sentry_sdk.init(
 # Constants
 CORRECT_PORT = "80"
 WRONG_IP = "192.0.2.1" # Dummy IP which does not exist
-WRONG_URL = "http://" + WRONG_IP + ":" + CORRECT_PORT
+WRONG_URL = f"http://{WRONG_IP}:{CORRECT_PORT}"
 API = "/test" # Dummy API
 
 
@@ -47,7 +47,7 @@ def lambda_handler(event, context):
     try:
         response_data = response.json()
     except Exception as e:
-        response_data = json.dumps("Error : {}".format(e))
+        response_data = json.dumps(f"Error : {e}")
 
     return {
         "url": url,

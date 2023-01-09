@@ -11,9 +11,9 @@ class HomePageView(TemplateView):
 
 
 def get_some_squares(n=3):
-    reply = 'The first {} squares are: '.format(n)
+    reply = f'The first {n} squares are: '
     for x in range(1, n+1):
-        reply += '{}, '.format(x * x)
+        reply += f'{x * x}, '
     reply = reply.rstrip(', ') + '.'  # don't @ me
     return reply
 
@@ -35,6 +35,4 @@ class BadView(TemplateView):
         context = super(BadView, self).get_context_data(**kwargs)
         context['good_or_bad'] = 'Broken'
         context['body_text'] = 'This will never be shown.'
-        if True:
-            raise Exception('Bad View Loaded')
-        return context
+        raise Exception('Bad View Loaded')

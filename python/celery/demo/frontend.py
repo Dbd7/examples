@@ -17,6 +17,6 @@ def hello_world():
 if __name__ == '__main__':
     web_app = Flask(__name__)
     web_app.config['DEBUG'] = True
-    web_app.config['SERVER_NAME'] = '{}:{}'.format(ADDRESS, PORT)
+    web_app.config['SERVER_NAME'] = f'{ADDRESS}:{PORT}'
     web_app.add_url_rule('/', view_func=hello_world)
     web_app.run()
