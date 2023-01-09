@@ -44,7 +44,7 @@ def cloud_handler(event, context):
     try:
         response_data = response.json()
     except Exception as e:
-        response_data = json.dumps("Error : {}".format(e))
+        response_data = json.dumps(f"Error : {e}")
 
     return {
         "url": url,
